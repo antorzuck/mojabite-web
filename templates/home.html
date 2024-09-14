@@ -1,0 +1,371 @@
+{% extends 'base.html' %}
+
+{% block css %}
+
+  
+@import url('https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap');
+    
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+
+
+
+h1,.logo {
+  font-family: "Grandstander", cursive;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+
+h2, h3, p, body{
+  font-family: "Ubuntu", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+#slider-container {
+position: relative;
+}
+#slider {
+display: flex;
+flex-wrap: nowrap;
+width: 100%;
+}
+#slider .slide {
+flex: 0 0 100%;
+}
+#slider img {
+width: 100%;
+height: auto;
+object-fit: cover;
+}
+.grabbing {
+cursor: grabbing;
+}
+
+
+      .carousel-container {
+        overflow: hidden;
+    }
+    .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+    .carousel-slide {
+        min-width: 100%;
+        box-sizing: border-box;
+    }
+
+
+    
+{% endblock %}
+
+
+
+{% block body %}
+
+
+
+<section class="p-3 md:p-20">
+    <div class="relative w-full   mx-auto mt-5">
+      <!-- Slider Container -->
+      <div class="overflow-hidden rounded-lg shadow-sm bg-black relative" id="slider-container">
+        <!-- Slides -->
+        <div class="whitespace-nowrap transition-transform duration-500 ease-in-out" id="slider">
+          <!-- Slides will be added dynamically -->
+        </div>
+      </div>
+  
+      <!-- Dots Navigation -->
+      <div class="absolute left-1/2 bottom-3 flex justify-center mt-3 space-x-2" id="dots-container">
+        <!-- Dots will be added dynamically -->
+      </div>
+    </div>
+  </section>
+  
+  
+  
+  
+  
+  <section class="my-5 px-3 md:px-20">
+  
+    <div class="mb-5 label">
+      <h2 class="text-xl text-slate-600">Categorys</h2>
+    </div>
+    
+    
+    
+  <div class="w-full overflow-x-auto p-1">
+    <div class="flex gap-3 min-w-max">
+      <!-- Repeat these category items as needed -->
+      <div class="flex flex-col items-center">
+        <div class="category flex items-center bg-white w-20 h-20 p-4 rounded-full shadow-sm ">
+          <img class="w-12 h-12" src="https://cdn-icons-png.flaticon.com/128/7242/7242141.png" alt="" />
+        </div>
+        <span class="text-sm text-gray-700 mt-1">Cake</span>
+      </div>
+  
+      <div class="flex flex-col items-center">
+        <div class="category flex items-center bg-white w-20 h-20 p-4 rounded-full shadow-sm ring-1 ring-gray-200">
+          <img class="w-12 h-12" src="https://cdn-icons-png.flaticon.com/128/10729/10729443.png" alt="" />
+        </div>
+        <span class="text-sm text-gray-700 mt-1">Pizza</span>
+      </div>
+  
+      <!-- Add more categories as needed -->
+      
+          <div class="flex flex-col items-center">
+            <div class="category flex items-center bg-white w-20 h-20 p-4 rounded-full shadow-sm ring-1 ring-gray-200">
+              <img class="w-12 h-12" src="https://cdn-icons-png.flaticon.com/128/3075/3075977.png" alt="" />
+            </div>
+            <span class="text-sm text-gray-700 mt-1">Burger</span>
+          </div>
+          
+          
+          
+          
+              <div class="flex flex-col items-center">
+                <div class="category flex items-center bg-white w-20 h-20 p-4 rounded-full shadow-sm ring-1 ring-gray-200">
+                  <img class="w-12 h-12" src="https://cdn-icons-png.flaticon.com/128/6978/6978175.png" alt="" />
+                </div>
+                <span class="text-sm text-gray-700 mt-1">Shawarma</span>
+              </div>
+      
+      
+      
+      
+      
+    </div>
+  </div>
+  
+    
+    
+    
+  </section>
+  
+  
+  
+  
+  
+  
+  
+  <section class="my-9 px-3 md:px-20">
+    
+  <div class="mb-5 label">
+  <h2 class="text-xl text-slate-600">Popular items</h2>
+  </div>
+  
+  
+  <div class="items-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    
+  
+  
+      <div class="max-w-sm bg-white rounded-lg shadow-sm overflow-hidden">
+        <div class="relative">
+          <!-- Carousel Images -->
+          <div class="carousel-container">
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <img src="https://img.freepik.com/free-photo/indian-food-thali-roti-rice-vegetable-curry-pulses-salad-isolated-white-background_466689-34949.jpg" alt="Food Image 1" class="w-full h-44 object-cover">
+              </div>
+              <div class="carousel-slide">
+                <img src="https://img.freepik.com/free-photo/indian-assorted-meal_466689-34622.jpg" alt="Food Image 2" class="w-full h-44 object-cover">
+              </div>
+              <div class="carousel-slide">
+                <img src="https://img.freepik.com/free-photo/high-angle-indian-food-composition_23-2148770617.jpg" alt="Food Image 3" class="w-full h-44 object-cover">
+              </div>
+            </div>
+          </div>
+          <!-- Left and Right Buttons -->
+          <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-1 rounded-full opacity-60">
+            &#10094;
+          </button>
+          <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-1 opacity-60 rounded-full">
+            &#10095;
+          </button>
+        </div>
+  
+        <div class="p-4">
+          
+          <div class="flex items-center justify-between">
+          <h3 class="text-md font-semibold text-gray-800">Breakfast Combo with Roti/Luchi</h3>
+          
+                    <div class="flex items-center space-x-1">
+                      <span class="text-yellow-500">★</span>
+                      <span class="text-gray-600 text-sm">3.2</span>
+                    </div>
+          
+          </div>
+       <div class="flex items-center justify-between">
+                    
+          <div class="flex items-center space-x-2 mt-2">
+            <img src="https://img.freepik.com/free-photo/portrait-asian-woman-holding-bowl_23-2148111882.jpg" alt="User Avatar" class="w-6 h-6 rounded-full">
+            <p class="text-sm text-gray-600">Saima Peari</p>
+          </div>
+  
+           
+           
+             <div class="mt-2 flex items-center space-x-2">
+           
+               <span class="text-lg text-gray-800 font-semibold">৳120</span>
+             </div>
+           
+          
+          </div>
+        </div>
+      </div>
+  
+  </div>
+</section>  
+
+{% endblock %}
+
+
+
+
+{% block js %}
+
+
+<script>
+    const slider = document.getElementById('slider');
+    const dotsContainer = document.getElementById('dots-container');
+    const sliderContainer = document.getElementById('slider-container');
+    let sliderCurrentIndex = 0;
+    let isSliderDragging = false;
+    let sliderStartPos = 0;
+    let sliderCurrentTranslate = 0;
+    let sliderPrevTranslate = 0;
+    let sliderAnimationID;
+  
+    // Image URLs
+    const imageUrls = [
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyOrr7HZeF1bM0h01c3wcTp3PvNyWrpoiNGg&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9so8EljZUUSEHebpWahxM0UUTRE0kxkQaOg&usqp=CAU'
+    ];
+  
+    function createSlides() {
+      imageUrls.forEach((url, index) => {
+        const slide = document.createElement('div');
+        slide.className = 'slide';
+        slide.innerHTML = `<img src="${url}" alt="Banner ${index + 1}">`;
+        slider.appendChild(slide);
+      });
+    }
+  
+    function createDots() {
+      imageUrls.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.className = 'w-2 h-2 bg-gray-400 rounded-full';
+        dot.setAttribute('data-index', index);
+        dot.addEventListener('click', () => showSlide(index));
+        dotsContainer.appendChild(dot);
+      });
+    }
+  
+    function showSlide(index) {
+      sliderCurrentIndex = index;
+      sliderCurrentTranslate = -sliderCurrentIndex * sliderContainer.clientWidth;
+      sliderPrevTranslate = sliderCurrentTranslate;
+      slider.style.transform = `translateX(${sliderCurrentTranslate}px)`;
+      dotsContainer.querySelectorAll('button').forEach((dot, i) => {
+        dot.classList.toggle('bg-white', i === index);
+        dot.classList.toggle('bg-gray-400', i !== index);
+      });
+    }
+  
+    function autoSlide() {
+      sliderCurrentIndex = (sliderCurrentIndex + 1) % imageUrls.length;
+      showSlide(sliderCurrentIndex);
+    }
+  
+    function setPositionByIndex() {
+      sliderCurrentTranslate = sliderCurrentIndex * -sliderContainer.clientWidth;
+      sliderPrevTranslate = sliderCurrentTranslate;
+      slider.style.transform = `translateX(${sliderCurrentTranslate}px)`;
+    }
+  
+    function touchStartSlider(index) {
+      return function(event) {
+        sliderCurrentIndex = index;
+        sliderStartPos = getPositionX(event);
+        isSliderDragging = true;
+        sliderAnimationID = requestAnimationFrame(animationSlider);
+        slider.classList.add('grabbing');
+      }
+    }
+  
+    function touchMoveSlider(event) {
+      if (isSliderDragging) {
+        const currentPosition = getPositionX(event);
+        sliderCurrentTranslate = sliderPrevTranslate + currentPosition - sliderStartPos;
+      }
+    }
+  
+    function touchEndSlider() {
+      isSliderDragging = false;
+      cancelAnimationFrame(sliderAnimationID);
+      const movedBy = sliderCurrentTranslate - sliderPrevTranslate;
+  
+      if (movedBy < -100 && sliderCurrentIndex < imageUrls.length - 1) sliderCurrentIndex += 1;
+      if (movedBy > 100 && sliderCurrentIndex > 0) sliderCurrentIndex -= 1;
+  
+      setPositionByIndex();
+      slider.classList.remove('grabbing');
+    }
+  
+    function getPositionX(event) {
+      return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+    }
+  
+    function animationSlider() {
+      slider.style.transform = `translateX(${sliderCurrentTranslate}px)`;
+      if (isSliderDragging) requestAnimationFrame(animationSlider);
+    }
+  
+    // Initialize slides and dots
+    createSlides();
+    createDots();
+  
+    // Auto-slide every 3 seconds
+    setInterval(autoSlide, 5000);
+  
+    slider.addEventListener('touchstart', touchStartSlider(sliderCurrentIndex));
+    slider.addEventListener('touchmove', touchMoveSlider);
+    slider.addEventListener('touchend', touchEndSlider);
+  
+    slider.addEventListener('mousedown', touchStartSlider(sliderCurrentIndex));
+    slider.addEventListener('mousemove', touchMoveSlider);
+    slider.addEventListener('mouseup', touchEndSlider);
+    slider.addEventListener('mouseleave', touchEndSlider);
+  
+    // Second Carousel
+  
+    const carouselTrack = document.querySelector('.carousel-track');
+    const slides = Array.from(carouselTrack.children);
+    const nextButton = document.getElementById('next');
+    const prevButton = document.getElementById('prev');
+    let carouselCurrentIndex = 0;
+  
+    function updateCarousel() {
+      const slideWidth = slides[0].getBoundingClientRect().width;
+      carouselTrack.style.transform = `translateX(-${carouselCurrentIndex * slideWidth}px)`;
+    }
+  
+    nextButton.addEventListener('click', () => {
+      carouselCurrentIndex = (carouselCurrentIndex + 1) % slides.length;
+      updateCarousel();
+    });
+  
+    prevButton.addEventListener('click', () => {
+      carouselCurrentIndex = (carouselCurrentIndex - 1 + slides.length) % slides.length;
+      updateCarousel();
+    });
+  
+    window.addEventListener('resize', updateCarousel);
+  
+  </script>
+  
+  
+
+{% endblock %}
