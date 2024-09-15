@@ -19,6 +19,52 @@
   </style>
 </head>
 <body class="bg-gray-100">
+
+
+
+
+
+
+
+
+  <div id="modal" class="z-10 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-lg shadow-xl max-w-md w-full">
+        <div class="flex justify-between items-center p-6 border-b">
+            <h2 class="text-xl font-semibold">Choose your city</h2>
+            <button id="closeModal" class="text-gray-400 hover:text-gray-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <div class="p-6 grid grid-cols-3 gap-4">
+            <button id="cityDhaka" class="city-button flex flex-col items-center space-y-2 hover:bg-gray-100 p-2 rounded transition duration-200">
+                <img src="/placeholder.svg?height=100&width=200" alt="Dhaka" class="w-full h-24 object-cover rounded">
+                <span class="text-sm font-medium">Dhaka</span>
+            </button>
+            <button id="cityChattogram" class="city-button flex flex-col items-center space-y-2 hover:bg-gray-100 p-2 rounded transition duration-200">
+                <img src="/placeholder.svg?height=100&width=200" alt="Chattogram" class="w-full h-24 object-cover rounded">
+                <span class="text-sm font-medium">Chattogram</span>
+            </button>
+            <button id="cityJashore" class="city-button flex flex-col items-center space-y-2 hover:bg-gray-100 p-2 rounded transition duration-200">
+                <img src="/placeholder.svg?height=100&width=200" alt="Jashore" class="w-full h-24 object-cover rounded">
+                <span class="text-sm font-medium">Jashore</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
   
  <section class="z-10 sticky top-0 bg-green-600 header shadow-sm">
    <nav class="flex items-center justify-between bg-green-600 mb-3 h-16 w-full p-3">
@@ -52,6 +98,10 @@
      
      
      <div class="gap-3 options flex justify-between items-center">
+
+      <a id="openModal" class="hover:bg-green-500 hover:rounded-full px-1 text-white">
+        <i class="text-xl bi bi-geo-alt"></i> Dhaka
+        </a>
        
        <a class="hover:bg-green-500 hover:rounded-full text-white text-bold">
         <i class="text-2xl bi bi-person"></i>
@@ -60,8 +110,7 @@
               <a class="hover:bg-green-500 hover:rounded-full px-1 text-white">
            <i class="text-xl bi bi-bag"></i>
               </a>
-       
-       
+              
        
      </div>
      
@@ -98,7 +147,59 @@
 {% endblock %}
 
 
+<script>
+  const modal = document.getElementById('modal');
+        const openModalBtn = document.getElementById('openModal');
+        const closeModalBtn = document.getElementById('closeModal');
 
+        openModalBtn.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+   
+    const closeModalButton = document.getElementById('closeModal');
+    const cityButtons = document.querySelectorAll('.city-button');
+
+    // Function to handle city selection
+    function handleCitySelection(event) {
+        const cityName = event.currentTarget.querySelector('span').textContent; // Get the city name
+        
+        // Do something with the selected city
+        console.log('Selected city:', cityName);
+        
+        // Example: you might want to set this city name somewhere or pass it to another function
+        // You could also trigger some other action here
+
+        // Close the modal
+        modal.classList.add('hidden');
+    }
+
+    // Add click event listener to each city button
+    cityButtons.forEach(button => {
+        button.addEventListener('click', handleCitySelection);
+    });
+
+    // Add click event listener to the close button
+    closeModalButton.addEventListener('click', function() {
+        modal.classList.add('hidden');
+    });
+});
+
+</script>
  
  
  

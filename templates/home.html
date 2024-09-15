@@ -26,6 +26,7 @@ h2, h3, p, body{
 
 #slider-container {
 position: relative;
+
 }
 #slider {
 display: flex;
@@ -67,28 +68,29 @@ cursor: grabbing;
 
 
 
-<section class="p-3 md:p-20">
-    <div class="relative w-full   mx-auto mt-5">
-      <!-- Slider Container -->
-      <div class="overflow-hidden rounded-lg shadow-sm bg-black relative" id="slider-container">
-        <!-- Slides -->
-        <div class="whitespace-nowrap transition-transform duration-500 ease-in-out" id="slider">
-          <!-- Slides will be added dynamically -->
-        </div>
-      </div>
-  
-      <!-- Dots Navigation -->
-      <div class="absolute left-1/2 bottom-3 flex justify-center mt-3 space-x-2" id="dots-container">
-        <!-- Dots will be added dynamically -->
+<section class="p-3 md:px-20 lg:px-64 flex items-center justify-center">
+  <div class="relative w-full  mx-auto mt-5">
+    <!-- Slider Container -->
+    <div class="overflow-hidden rounded-lg w-full shadow-sm bg-black relative" id="slider-container">
+      <!-- Slides -->
+      <div class="whitespace-nowrap transition-transform duration-500 ease-in-out" id="slider">
+        <!-- Slides will be added dynamically -->
       </div>
     </div>
-  </section>
+
+    <!-- Dots Navigation -->
+    <div class="absolute left-1/2 bottom-3 flex justify-center mt-3 space-x-2" id="dots-container">
+      <!-- Dots will be added dynamically -->
+    </div>
+  </div>
+</section>
+
   
   
   
   
   
-  <section class="my-5 px-3 md:px-20">
+  <section class="my-5 px-3 md:px-20 lg:px-64">
   
     <div class="mb-5 label">
       <h2 class="text-xl text-slate-600">Categorys</h2>
@@ -150,7 +152,7 @@ cursor: grabbing;
   
   
   
-  <section class="my-9 px-3 md:px-20">
+  <section class="my-9 px-3 md:px-20 lg:px-64">
     
   <div class="mb-5 label">
   <h2 class="text-xl text-slate-600">Popular items</h2>
@@ -246,18 +248,20 @@ cursor: grabbing;
     ];
   
     function createSlides() {
-      imageUrls.forEach((url, index) => {
-        const slide = document.createElement('div');
-        slide.className = 'slide';
-        slide.innerHTML = `<img src="${url}" alt="Banner ${index + 1}">`;
-        slider.appendChild(slide);
-      });
-    }
+            imageUrls.forEach((url, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'w-full flex-shrink-0';
+                slide.innerHTML = `<img src="${url}" alt="Banner ${index + 1}" class="w-full h-64 object-cover">`;
+                slider.appendChild(slide);
+
+         
+            });
+        }
   
     function createDots() {
       imageUrls.forEach((_, index) => {
         const dot = document.createElement('button');
-        dot.className = 'w-2 h-2 bg-gray-400 rounded-full';
+        dot.className = 'w-2 h-2 bg-white bg-opacity-50 rounded-full';
         dot.setAttribute('data-index', index);
         dot.addEventListener('click', () => showSlide(index));
         dotsContainer.appendChild(dot);
@@ -329,7 +333,7 @@ cursor: grabbing;
     createDots();
   
     // Auto-slide every 3 seconds
-    setInterval(autoSlide, 7000);
+    setInterval(autoSlide, 4000);
   
     slider.addEventListener('touchstart', touchStartSlider(sliderCurrentIndex));
     slider.addEventListener('touchmove', touchMoveSlider);
