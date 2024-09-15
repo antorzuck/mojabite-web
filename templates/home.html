@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block css %}
 
   
@@ -240,6 +240,7 @@ cursor: grabbing;
   
     // Image URLs
     const imageUrls = [
+     "{% static 'Picsart_24-09-14_18-18-25-499.jpg' %}",
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyOrr7HZeF1bM0h01c3wcTp3PvNyWrpoiNGg&usqp=CAU',
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9so8EljZUUSEHebpWahxM0UUTRE0kxkQaOg&usqp=CAU'
     ];
@@ -328,7 +329,7 @@ cursor: grabbing;
     createDots();
   
     // Auto-slide every 3 seconds
-    setInterval(autoSlide, 5000);
+    setInterval(autoSlide, 7000);
   
     slider.addEventListener('touchstart', touchStartSlider(sliderCurrentIndex));
     slider.addEventListener('touchmove', touchMoveSlider);
